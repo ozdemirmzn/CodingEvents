@@ -21,16 +21,16 @@
 </ol>*@
 <table class="table">
     <tr>
+        <th>ID</th>
         <th>Event Name</th>
         <th>Event Description</th>
     </tr>
     @foreach (var evt in ViewBag.events)
     {
         <tr>
-
+            <td>@evt.Id</td>
             <td>@evt.Name</td>
             <td>@evt.Description</td>
-            
         </tr>
     }
     </table>
