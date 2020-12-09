@@ -1,8 +1,12 @@
 ﻿<h1>Coding Events</h1>
 <p>
-    <a asp-controller="Events" asp-action="Add">Add</a>
-    <br />
-    <partial name="/Views/Shared/_LinkListPartial.cshtml" />
+    <a asp-controller="Events" asp-action="Add">Add Event</a>
+   @* <br />
+    <partial name="/Views/Shared/_LinkListPartial.cshtml" />*@
+</p>
+<p>
+    <a asp-controller="Events" asp-action="Delete">Delete Event</a>
+   
 </p>
 
 @if (ViewBag.events.Count == 0)

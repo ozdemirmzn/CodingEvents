@@ -10,13 +10,11 @@ namespace CodingEvents.Controllers
 {
     public class EventsController : Controller
     {
-        
+
         [HttpGet]
         public IActionResult Index()
         {
-            /*Events.Add("Strange Loop");
-            Events.Add("Grace Hopper");
-            Events.Add("Code with Pride");*/
+
             ViewBag.events = EventData.GetAll();
 
             return View();
@@ -32,6 +30,22 @@ namespace CodingEvents.Controllers
         public IActionResult NewEvent(string name, string description)
         {
             EventData.Add(new Event(name, description));
+            return Redirect("/Events");
+        }
+
+        public IActionResult Delete()
+        {
+            ViewBag.events = EventData.GetAll();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Delete(int[] eventIds)
+        {
+            foreach (int evenId in eventIds)
+            {
+                EventData.Remove(evenId);
+            }
+
             return Redirect("/Events");
         }
     }
